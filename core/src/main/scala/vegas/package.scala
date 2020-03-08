@@ -38,6 +38,7 @@ package object vegas {
   val Area = Spec.MarkEnums.Area
   val Point = Spec.MarkEnums.Point
   val Text = Spec.MarkEnums.Text
+  val Rule = Spec.MarkEnums.Rule
 
   val AggOps = Spec.AggregateOpEnums
   val DataFormat = Spec.DataFormatTypeEnums

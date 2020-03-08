@@ -208,6 +208,12 @@ object BasicPlots {
       encodeX("Horsepower", Quantitative).
       encodeY("Cylinders", Ordinal)
 
+  val RulePlot =
+    Vegas("Shows the average price of different stocks using rules.").
+      withURL(Stocks).
+      mark(Rule).
+      encodeY("price", Quantitative,  aggregate = AggOps.Mean)
+
   // Names (ex. bar, bar_aggregate, etc.) are corresponding to filenames
   //  of `/core/src/test/resources/example-specs/*.vl.json`
   val plotsWithNames: List[(String, SpecBuilder)] = List(
@@ -230,7 +236,9 @@ object BasicPlots {
     "stacked_area_normalize" -> NormalizedStackedAreaChart,
     "stacked_area_stream" -> Streamgraph,
     "stacked_bar_weather" -> StackedBarChart,
-    "tick_strip" -> StripPlot
+    "tick_strip" -> StripPlot,
+    // TODO: Add a real .vl.json file with the plot.
+    "rule_plot" -> RulePlot,
   ).sortBy(_._1)
 
   val plots: List[SpecBuilder] = plotsWithNames.map(_._2)
